@@ -1,0 +1,9 @@
+{
+  "name": "hero-homes-lucknow",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hero Homes Lucknow Landing Page & Conversion Funnel",
+  "scripts": {
+    "verify": "python verify_assets.py"
+  }
+}
