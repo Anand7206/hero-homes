@@ -1,6 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+// Fixed Asset Slot Manifest (Contract)
+const ASSETS = {
+  logoHero:            '/assets/logo-hero-homes.svg',
+  logoHeroPng:         '/assets/logo-hero-homes.png',
+  logoPartner:         '/assets/logo-lucknow-homes.svg',
+  logoPartnerPng:      '/assets/logo-lucknow-homes.png',
+  heroDesktop:         '/assets/hero-desktop.webp',
+  heroMobile:          '/assets/hero-mobile.webp',
+  galleryMasterPlan:   '/assets/gallery-master-plan.webp',
+  galleryEntranceGate: '/assets/gallery-entrance-gate.webp',
+  galleryGreenParks:   '/assets/gallery-green-parks.webp',
+  galleryClubhouse:    '/assets/gallery-clubhouse.webp',
+  gallerySportsZone:   '/assets/gallery-sports-zone.webp',
+  galleryVillaElevation:'/assets/gallery-villa-elevation.webp',
+  mapThumbnail:        '/assets/map-thumbnail.webp',
+  ogShare:             '/assets/og-share.jpg',
+  faviconSvg:          '/assets/favicon.svg',
+  faviconIco:          '/assets/favicon.ico',
+  appleTouchIcon:      '/assets/apple-touch-icon.png'
+};
+
+function makePlaceholder(slotName) {
+  const labels = {
+    'hero-desktop': 'Township Hero Render',
+    'hero-mobile': 'Township Mobile Render',
+    'master-plan': 'Township Master Plan Layout',
+    'entrance-gate': 'Grand Entrance Gate Render',
+    'green-parks': 'Landscaped Green Parks',
+    'clubhouse': 'Luxury Clubhouse Elevation (Awaiting Release)',
+    'sports-zone': 'Sports & Recreation Zone (Awaiting Release)',
+    'villa-elevation': 'Villa & Plot Elevation Concept',
+    'map-thumbnail': 'Interactive Location Map Poster',
+    'hero-logo': 'Hero Homes Lucknow Logo',
+    'partner-logo': 'Lucknow Homes Logo'
+  };
+  const label = labels[slotName] || (slotName + ' Render');
+  
+  const container = document.createElement('div');
+  container.className = 'slot-placeholder-box';
+  container.style.cssText = 'width:100%;height:100%;min-height:180px;background:#0b192c;border:1px solid #c5a880;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;box-sizing:border-box;color:#e2e8f0;';
+  
+  container.innerHTML = `
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#c5a880" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:10px;">
+      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+      <polyline points="21 15 16 10 5 21"></polyline>
+    </svg>
+    <span style="font-family:system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;color:#c5a880;margin-bottom:4px;text-transform:uppercase;">Hero Homes Lucknow</span>
+    <span style="font-family:system-ui,sans-serif;font-size:11px;color:#94a3b8;">${label}</span>
+  `;
+  return container;
+}
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +67,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Hero Homes Lucknow | Upcoming 52-Acre Township on Kanpur Road">
   <meta property="og:description" content="52-acre planned township on Kanpur Road, Lucknow. Pre-launch plots from 125 sq. yds. Expected launch Oct–Nov 2026. Authorised Channel Partner: Lucknow Homes.">
-  <meta property="og:image" content="/assets/og-image.jpg">
+  <meta property="og:image" content="https://herohomeslucknow.in/assets/og-share.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/jpeg">
@@ -23,7 +77,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Hero Homes Lucknow | Upcoming 52-Acre Township on Kanpur Road">
   <meta name="twitter:description" content="52-acre planned township on Kanpur Road, Lucknow. Pre-launch plots from 125 sq. yds. Authorised Channel Partner: Lucknow Homes.">
-  <meta name="twitter:image" content="/assets/og-image.jpg">
+  <meta name="twitter:image" content="https://herohomeslucknow.in/assets/og-share.jpg">
 
   <!-- Canonical & Favicons -->
   <link rel="canonical" href="https://{{DOMAIN}}/">
@@ -696,7 +750,7 @@
 
     select.form-control {
       appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23F2D06B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-image: url("'http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23F2D06B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 14px center;
       padding-right: 40px;
@@ -1306,7 +1360,7 @@
       overflow: hidden;
       box-shadow: var(--shadow-card);
       border: 1px solid var(--color-border);
-      background: #e5e3df url('/assets/map-location-thumb.jpg') center/cover no-repeat;
+      background: #0b192c url('/assets/map-thumbnail.webp') center/cover no-repeat;
     }
     .map-poster {
       position: absolute;
@@ -1648,7 +1702,7 @@
   <header class="sticky-header" id="mainHeader">
     <div class="container header-inner">
       <a href="#hero" class="header-logo" aria-label="Hero Homes Lucknow Home">
-        <img src="/assets/hero-homes-logo.png" alt="Hero Homes Lucknow Logo" class="header-logo-img" width="160" height="39" loading="eager" onerror="this.onerror=null;this.src='/assets/placeholder.svg';">
+        <img src="/assets/logo-hero-homes.svg" alt="Hero Homes Lucknow Logo" class="header-logo-img" style="height:38px; width:auto; object-fit:contain;" loading="eager" onerror="this.onerror=null; this.src='/assets/logo-hero-homes.png';"><rect width='600' height='400' fill='%23F1F5F9' rx='8'/><rect x='2' y='2' width='596' height='396' stroke='%23CBD5E1' stroke-width='2' stroke-dasharray='6 6' rx='7'/><text x='50%25' y='50%25' font-family='system-ui,sans-serif' font-size='16' font-weight='600' fill='%2364748B' text-anchor='middle' dominant-baseline='middle'>Hero Homes Lucknow</text></svg>';"/assets/placeholder.svg";">
         <div class="header-brand-divider" aria-hidden="true"></div>
         <div class="header-partner-tag">
           <span class="partner-label">Authorised Channel Partner</span>
@@ -1667,11 +1721,11 @@
   <!-- 2. HERO SECTION -->
   <section class="hero-section" id="hero">
     <div class="hero-bg-container">
-      <picture>
-        <source media="(max-width: 767px)" srcset="/assets/township-gate-dusk-mobile.webp 1x, /assets/township-gate-dusk-mobile.jpg 2x" type="image/webp">
-        <source media="(min-width: 768px)" srcset="/assets/township-gate-dusk.webp 1x, /assets/township-gate-dusk.jpg 2x" type="image/webp">
-        <img src="/assets/township-gate-dusk.jpg" alt="Hero Homes Lucknow Dusk Township Gate Render" width="1500" height="900" loading="eager" decoding="async" fetchpriority="high" onerror="this.onerror=null;this.src='/assets/placeholder.svg';">
-      </picture>
+      <picture class="hero-picture-slot" style="display:block; width:100%; height:100%;">
+          <source media="(max-width: 767px)" srcset="/assets/hero-mobile.webp" type="image/webp">
+          <source media="(min-width: 768px)" srcset="/assets/hero-desktop.webp" type="image/webp">
+          <img src="/assets/hero-desktop.webp" alt="Hero Homes Lucknow Dusk Township Gate Render" width="1500" height="900" style="width:100%; height:100%; object-fit:cover;" loading="eager" decoding="async" fetchpriority="high" onerror="this.onerror=null; this.replaceWith(makePlaceholder('hero-desktop'));">
+        </picture>
       <div class="hero-overlay"></div>
     </div>
 
@@ -1942,25 +1996,18 @@
       <!-- Gallery Snap-Scroll Carousel / Grid -->
       <div class="gallery-carousel">
         <div class="gallery-card" onclick="openLightbox(0)">
-          <picture>
-            <source srcset="/assets/township-overview.webp" type="image/webp">
-            <img src="/assets/township-overview.jpg" alt="Township Landscaped Green Parks" width="1200" height="801" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/assets/placeholder.svg';">
-          </picture>
-          <div class="gallery-caption">Landscaped Green Parks & Open Spaces</div>
-        </div>
-
-        <div class="gallery-card" onclick="openLightbox(1)">
-          <picture>
-            <source srcset="/assets/township-gate-dusk.webp" type="image/webp">
-            <img src="/assets/township-gate-dusk.jpg" alt="Grand Entrance Gate Render" width="1500" height="900" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/assets/placeholder.svg';">
-          </picture>
+          <picture class="hero-picture-slot" style="display:block; width:100%; height:100%;">
+          <source media="(max-width: 767px)" srcset="/assets/hero-mobile.webp" type="image/webp">
+          <source media="(min-width: 768px)" srcset="/assets/hero-desktop.webp" type="image/webp">
+          <img src="/assets/hero-desktop.webp" alt="Hero Homes Lucknow Dusk Township Gate Render" width="1500" height="900" style="width:100%; height:100%; object-fit:cover;" loading="eager" decoding="async" fetchpriority="high" onerror="this.onerror=null; this.replaceWith(makePlaceholder('hero-desktop'));">
+        </picture>
           <div class="gallery-caption">Grand Entrance Gate Visual</div>
         </div>
 
         <div class="gallery-card" onclick="openLightbox(2)">
           <picture>
             <source srcset="/assets/plot-villa-elevation.webp" type="image/webp">
-            <img src="/assets/plot-villa-elevation.jpg" alt="Plot & Villa Elevation Visual" width="320" height="174" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/assets/placeholder.svg';">
+            <img src="/assets/plot-villa-elevation.jpg" alt="Plot & Villa Elevation Visual" width="320" height="174" loading="lazy" decoding="async" onerror="this.onerror=null;this.src=''http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400' onerror="this.onerror=null;this.src=\'';"><rect width='600' height='400' fill='%23F1F5F9' rx='8'/><rect x='2' y='2' width='596' height='396' stroke='%23CBD5E1' stroke-width='2' stroke-dasharray='6 6' rx='7'/><text x='50%25' y='50%25' font-family='system-ui,sans-serif' font-size='16' font-weight='600' fill='%2364748B' text-anchor='middle' dominant-baseline='middle'>Hero Homes Lucknow</text></svg>';"/assets/placeholder.svg";">
           </picture>
           <div class="gallery-caption">Villa & Plot Elevation Concept</div>
         </div>
@@ -1973,7 +2020,7 @@
     <div class="lightbox-content">
       <button class="lightbox-close-btn" onclick="closeLightbox()" aria-label="Close Lightbox">✕</button>
       <button class="lightbox-nav-btn lightbox-prev" onclick="prevLightbox()" aria-label="Previous Image">‹</button>
-      <img id="lightboxImg" src="" alt="Full view image" onerror="this.onerror=null;this.src='/assets/placeholder.svg';">
+      <img id="lightboxImg" src="" alt="Full view image" onerror="this.onerror=null;this.src=''http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'><rect width='600' height='400' fill='%23F1F5F9' rx='8'/><rect x='2' y='2' width='596' height='396' stroke='%23CBD5E1' stroke-width='2' stroke-dasharray='6 6' rx='7'/><text x='50%25' y='50%25' font-family='system-ui,sans-serif' font-size='16' font-weight='600' fill='%2364748B' text-anchor='middle' dominant-baseline='middle'>Hero Homes Lucknow</text></svg>';"/assets/placeholder.svg";">
       <div class="lightbox-caption" id="lightboxCaption"></div>
       <button class="lightbox-nav-btn lightbox-next" onclick="nextLightbox()" aria-label="Next Image">›</button>
     </div>
@@ -2214,10 +2261,10 @@
           <div class="footer-col">
             <div class="footer-logos-flex">
               <div class="footer-logo-plate">
-                <img src="/assets/hero-homes-logo.png" alt="Hero Homes Lucknow Logo" class="footer-logo-img" width="140" height="34" loading="eager" onerror="this.onerror=null;this.src='/assets/placeholder.svg';">
+                <img src="/assets/logo-hero-homes.svg" alt="Hero Homes Lucknow Logo" class="footer-logo-img" style="height:34px; width:auto; object-fit:contain;" loading="eager" onerror="this.onerror=null; this.src='/assets/logo-hero-homes.png';"><rect width='600' height='400' fill='%23F1F5F9' rx='8'/><rect x='2' y='2' width='596' height='396' stroke='%23CBD5E1' stroke-width='2' stroke-dasharray='6 6' rx='7'/><text x='50%25' y='50%25' font-family='system-ui,sans-serif' font-size='16' font-weight='600' fill='%2364748B' text-anchor='middle' dominant-baseline='middle'>Hero Homes Lucknow</text></svg>';"/assets/placeholder.svg";">
               </div>
               <div class="footer-logo-plate">
-                <img src="/assets/lucknow-homes-logo.png" alt="Lucknow Homes Co-Brand Logo" class="footer-logo-img" width="140" height="42" loading="eager" onerror="this.onerror=null;this.src='/assets/placeholder.svg';">
+                <img src="/assets/logo-lucknow-homes.svg" alt="Lucknow Homes Co-Brand Logo" class="footer-logo-img" style="height:34px; width:auto; object-fit:contain;" loading="eager" onerror="this.onerror=null; this.src='/assets/logo-lucknow-homes.png';"><rect width='600' height='400' fill='%23F1F5F9' rx='8'/><rect x='2' y='2' width='596' height='396' stroke='%23CBD5E1' stroke-width='2' stroke-dasharray='6 6' rx='7'/><text x='50%25' y='50%25' font-family='system-ui,sans-serif' font-size='16' font-weight='600' fill='%2364748B' text-anchor='middle' dominant-baseline='middle'>Hero Homes Lucknow</text></svg>';"/assets/placeholder.svg";">
               </div>
             </div>
             <p class="footer-brand-desc">
@@ -2340,7 +2387,7 @@
         <!-- LEFT column (~65%) -->
         <div class="gate-main-col">
           <div class="gate-logo-wrap">
-            <img src="/assets/hero-homes-logo.png" alt="Hero Homes Lucknow Logo" width="160" height="39" onerror="this.onerror=null;this.src='/assets/placeholder.svg';">
+            <img src="/assets/hero-homes-logo.png" alt="Hero Homes Lucknow Logo" width="160" height="39" onerror="this.onerror=null;this.src=''http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400' onerror="this.onerror=null;this.src=\'';"><rect width='600' height='400' fill='%23F1F5F9' rx='8'/><rect x='2' y='2' width='596' height='396' stroke='%23CBD5E1' stroke-width='2' stroke-dasharray='6 6' rx='7'/><text x='50%25' y='50%25' font-family='system-ui,sans-serif' font-size='16' font-weight='600' fill='%2364748B' text-anchor='middle' dominant-baseline='middle'>Hero Homes Lucknow</text></svg>';"/assets/placeholder.svg";">
           </div>
           <h4 class="gate-heading">Register Here For <span class="text-red">Best Offers!</span></h4>
 
@@ -2536,10 +2583,13 @@
 
     // 6. Project Gallery Lightbox Implementation
     const galleryItems = [
-      { src: '/assets/township-overview.jpg', caption: 'Landscaped Green Parks & Open Spaces' },
-      { src: '/assets/township-gate-dusk.jpg', caption: 'Grand Entrance Gate Visual' },
-      { src: '/assets/plot-villa-elevation.jpg', caption: 'Villa & Plot Elevation Concept' }
-    ];
+    { src: ASSETS.galleryGreenParks, caption: 'Landscaped Green Parks & Open Spaces' },
+    { src: ASSETS.galleryEntranceGate, caption: 'Grand Entrance Gate Visual' },
+    { src: ASSETS.galleryVillaElevation, caption: 'Villa & Plot Elevation Concept' },
+    { src: ASSETS.galleryMasterPlan, caption: 'Township Master Plan Layout' },
+    { src: ASSETS.galleryClubhouse, caption: 'Luxury Clubhouse Concept' },
+    { src: ASSETS.gallerySportsZone, caption: 'Sports & Amenities Zone' }
+  ];
 
     let currentLightboxIdx = 0;
 
